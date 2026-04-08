@@ -4,6 +4,8 @@ import { Pelicula } from '../../models/pelicula.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Categoria } from '../../models/categoria.model';
+import Swal from 'sweetalert2'
+
 
 declare var bootstrap: any;
 @Component({
@@ -87,12 +89,19 @@ export class AdminPeliculas implements OnInit {
   }
 
   agregarPelicula(): void {
+
     const pelicula: Pelicula =
       new Pelicula(0, this.nombrePelicula, this.sinopsisPelicula, this.categoriaId, this.fechaEstrenoPelicula, this.puntuacionPelicula, true);
 
     this.apiPeliculas.agregarPelicula(pelicula).subscribe({
       next: (data) => {
         this.obtenerPeliculas();
+
+        Swal.fire({
+          title: "Pelicula agregada exitosamente",
+          icon: "success",
+        });
+        
       },
       error: (error) => {
         console.log(error);
