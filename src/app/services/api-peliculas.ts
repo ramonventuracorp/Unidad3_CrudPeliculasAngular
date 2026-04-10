@@ -9,7 +9,7 @@ import { Categoria } from '../models/categoria.model';
 export class ApiPeliculas {
 
   // Url del api
-  private apiUrl = "http://www.crudpeliculas.somee.com/api"
+  private apiUrl = "https://www.crudpeliculas.somee.com/api"
 
   // Constructor
   constructor(private httpClient: HttpClient) {
